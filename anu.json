@@ -1,58 +1,49 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/USERNAME/REPOSITORY/main/catalog.json",
+  "$id": "https://raw.githubusercontent.com/Denzdelz-0/Taktau/refs/heads/main/anu.json",
   "title": "Denzy A2UI Catalog",
-  "description": "A2UI v0.9 catalog with a compact clickable webpage preview component.",
-  "catalogId": "https://raw.githubusercontent.com/USERNAME/REPOSITORY/main/catalog.json",
-
-  "$defs": {
-    "WebPagePreview": {
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "https://a2ui.org/specification/v0_9/common_types.json#/$defs/ComponentCommon"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "component": {
-              "const": "WebPagePreview"
-            },
-            "url": {
-              "$ref": "https://a2ui.org/specification/v0_9/common_types.json#/$defs/DynamicString",
-              "description": "The webpage URL opened when the preview is activated."
-            },
-            "title": {
-              "$ref": "https://a2ui.org/specification/v0_9/common_types.json#/$defs/DynamicString",
-              "description": "The webpage title."
-            },
-            "description": {
-              "$ref": "https://a2ui.org/specification/v0_9/common_types.json#/$defs/DynamicString",
-              "description": "A short webpage description."
-            },
-            "image": {
-              "$ref": "https://a2ui.org/specification/v0_9/common_types.json#/$defs/DynamicString",
-              "description": "URL of the small webpage thumbnail."
-            },
-            "domain": {
-              "$ref": "https://a2ui.org/specification/v0_9/common_types.json#/$defs/DynamicString",
-              "description": "The webpage domain displayed below the title."
-            }
-          },
-          "required": [
-            "component",
-            "url",
-            "title"
-          ]
-        }
-      ],
-      "unevaluatedProperties": false
-    }
-  },
+  "description": "Custom A2UI v0.9 catalog.",
+  "catalogId": "https://raw.githubusercontent.com/Denzdelz-0/Taktau/refs/heads/main/anu.json",
 
   "components": {
     "WebPagePreview": {
-      "$ref": "#/$defs/WebPagePreview"
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique component identifier."
+        },
+        "component": {
+          "const": "WebPagePreview"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL opened when the preview is activated."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title displayed in the preview."
+        },
+        "description": {
+          "type": "string",
+          "description": "Short description displayed in the preview."
+        },
+        "image": {
+          "type": "string",
+          "description": "Thumbnail image URL."
+        },
+        "domain": {
+          "type": "string",
+          "description": "Domain displayed in the preview."
+        }
+      },
+      "required": [
+        "id",
+        "component",
+        "url",
+        "title"
+      ],
+      "additionalProperties": false
     }
   },
 
@@ -64,8 +55,7 @@
         "type": "object",
         "properties": {
           "url": {
-            "type": "string",
-            "format": "uri"
+            "type": "string"
           }
         },
         "required": [
@@ -74,7 +64,7 @@
         "additionalProperties": false
       },
       "returnType": {
-        "const": "void"
+        "type": "void"
       }
     }
   ]
